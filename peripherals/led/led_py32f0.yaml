@@ -1,0 +1,53 @@
+LED:
+  CR:
+    LEDON:
+      Disabled: [0, "Disable LED controller"]
+      Enabled: [1, "Enable LED controller"]
+    LED_COM_SEL:
+      OneDigit: [0, "One digit"]
+      TwoDigits: [1, "Two digits sequentially"]
+      ThreeDigits: [2, "Three digits sequentially"]
+      FourDigits: [3, "Four digits sequentially"]
+    IE:
+      Disabled: [0, "Disable interrupt"]
+      Enabled: [1, "Enable interrupt"]
+    EHS:
+      NoComOutput: [0, "No COM output"]
+      HighSink: [1, "LED COM output high sink, driven level configured by GPIO_OSPEEDR"]
+  PR:
+    PR: [0, 255]
+  TR:
+    T1: [0, 255]
+    T2: [0, 255]
+  DR?:
+    DATA?_A:
+      Off: [0, "DATAx seg A off"]
+      On: [1, "DATAx seg A on"]
+    DATA?_B:
+      Off: [0, "DATAx seg B off"]
+      On: [1, "DATAx seg B on"]
+    DATA?_C:
+      Off: [0, "DATAx seg C off"]
+      On: [1, "DATAx seg C on"]
+    DATA?_D:
+      Off: [0, "DATAx seg D off"]
+      On: [1, "DATAx seg D on"]
+    DATA?_E:
+      Off: [0, "DATAx seg E off"]
+      On: [1, "DATAx seg E on"]
+    DATA?_F:
+      Off: [0, "DATAx seg F off"]
+      On: [1, "DATAx seg F on"]
+    DATA?_G:
+      Off: [0, "DATAx seg G off"]
+      On: [1, "DATAx seg G on"]
+    DATA?_DP:
+      Off: [0, "DATAx seg DP off"]
+      On: [1, "DATAx seg DP on"]
+  IR:
+    FLAG:
+      _read:
+        NotComplete: [0, "Not complete one digit lit"]
+        Completed: [1, "Complete one digit lit"]
+      _write:
+        Clear: [1, "Clear interrupt flag"]

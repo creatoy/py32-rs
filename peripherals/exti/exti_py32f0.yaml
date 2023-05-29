@@ -1,0 +1,37 @@
+EXTI:
+  RTSR:
+    "RT*":
+      Disabled: [0, "Rising edge trigger is disabled"]
+      Enabled: [1, "Rising edge trigger is enabled"]
+  FTSR:
+    "FT*":
+      Disabled: [0, "Falling edge trigger is disabled"]
+      Enabled: [1, "Falling edge trigger is enabled"]
+  SWIER,SWIER?:
+    "SWI*":
+      _write:
+        Pend: [1, "Generates an interrupt request"]
+  PR:
+    "PR*":
+      _W1C:
+        Clear: [1, "Clears pending bit"]
+      _read:
+        NotPending: [0, "No trigger request occurred"]
+        Pending: [1, "Selected trigger request occurred"]
+  "EXTICR[12]":
+    "EXTI[0-4]":
+      PA: [0, "GPIO port A selected"]
+      PB: [1, "GPIO port B selected"]
+      PF: [2, "GPIO port F selected"]
+  "EXTICR[23]":
+    "EXTI[5-8]":
+      PA: [0, "GPIO port A selected"]
+      PB: [1, "GPIO port B selected"]
+  IMR:
+    "IM*":
+      Masked: [0, "Interrupt request line is masked"]
+      Unmasked: [1, "Interrupt request line is unmasked"]
+  EMR:
+    "EM*":
+      Masked: [0, "Interrupt request line is masked"]
+      Unmasked: [1, "Interrupt request line is unmasked"]

@@ -1,0 +1,28 @@
+# This file contains a table of all supported PY32 microcontrollers.
+#
+# It lists them by family (which corresponds to a crate),
+# then by the "device" in that family (corresponds to an SVD file,
+# and to a module within each crate).
+#
+# For each device, there is a link to the product page and reference manual,
+# the reference manual ID, the title from the reference manual,
+# and a list of actual members of this family (without size/package codes).
+#
+# This data is used to generate more informative crate READMEs.
+
+py32f0:
+  py32f00x:
+    url: https://www.puyasemi.com/cpzx3/info_267_aid_242_kid_235.html
+    rm: PY32 mcu docs
+    rm_title: PY32 mcu docs
+    rm_url: https://www.puyasemi.com/uploadfiles/2023/PY32F030-PY32F003-PY32F002A-230410.rar
+    members:
+      - PY32F002A
+      - PY32F003
+  py32f0x0:
+    url: https://www.puyasemi.com/cpzx3/info_267_aid_242_kid_235.html
+    rm: PY32 mcu docs
+    rm_title: PY32 mcu docs
+    rm_url: https://www.puyasemi.com/uploadfiles/2023/PY32F030-PY32F003-PY32F002A-230410.rar
+    members:
+      - PY32F030

@@ -1,0 +1,23 @@
+_svd: ../svd/py32f030.svd
+
+_include:
+ - ../peripherals/flash/flash_py32f0.yaml
+ - ../peripherals/pwr/pwr_py32f0.yaml
+ - ../peripherals/rcc/rcc_py32f0.yaml
+ - ../peripherals/gpio/gpio_py32f0.yaml
+ - ../peripherals/syscfg/syscfg_py32f0.yaml
+ - ../peripherals/dma/dma_py32f0.yaml
+ - ../peripherals/exti/exti_py32f0.yaml
+ - ../peripherals/crc/crc_py32f0.yaml
+ - ../peripherals/adc/adc_py32f0.yaml
+ - ../peripherals/comp/comp_py32f0.yaml
+ - ../peripherals/led/led_py32f0.yaml
+ - ../peripherals/tim/tim_py32f0.yaml
+ - ../peripherals/lptim/lptim_py32f0.yaml
+ - ../peripherals/iwdg/iwdg_py32f0.yaml
+ - ../peripherals/wwdg/wwdg_py32f0.yaml
+ - ../peripherals/rtc/rtc_py32f0.yaml
+ - ../peripherals/i2c/i2c_py32f0.yaml
+ - ../peripherals/usart/usart_py32f0.yaml
+ - ../peripherals/spi/spi_py32f0.yaml
+ - ../peripherals/dbg/dbg_py32f0.yaml

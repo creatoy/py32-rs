@@ -1,0 +1,80 @@
+COMP?:
+  CSR:
+    _modify:
+      COMP_EN:
+        name: EN
+      COMP_OUT:
+        name: VALUE
+    EN:
+      Disabled: [0, "Comparator 1 disabled"]
+      Enabled: [1, "Comparator 1 enabled"]
+    POLARITY:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    PWRMODE:
+      HighSpeed: [0, "High speed / full power"]
+      MediumSpeed: [1, "Medium speed / medium power"]
+      LowSpeed: [2, "Low speed / low power"]
+      VeryLowSpeed: [3, "Very-low speed / ultra-low power"]
+    VALUE:
+      _read:
+        Low: [0, "Comparator output is low"]
+        High: [1, "Comparator output is high"]
+    LOCK:
+      Unlocked: [0, "Comparator CSR bits are read-write"]
+      Locked: [1, "Comparator CSR bits are read-only"]
+  FR:
+    FLTEN:
+      Disabled: [0, "Comparator digital filter disabled"]
+      Enabled: [1, "Comparator digital filter enabled"]
+    FLTCNT:
+      [0, 0xFFFF]
+
+COMP1:
+  CSR:
+    _modify:
+      SCALER_EN:
+        name: SCALER
+    SCALER:
+      Disabled: [0, "Voltage scaler disabled"]
+      Enabled: [1, "Voltage scaler enabled"]
+    INMSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      OneHalfVRef: [1, "1/2 of VRefint"]
+      ThreeQuarterVRef: [2, "3/4 of VRefint"]
+      VRef: [3, "VRefint"]
+      Vcc: [4, "VCC"]
+      TS: [5, "TS"]
+      PB1: [6, "PB1 connected to inverting input"]
+      PA0: [8, "PA0 connected to inverting input"]
+    INPSEL:
+      PB8: [0, "PB8 connected to non-inverting input"]
+      PB2: [1, "PB2 connected to non-inverting input"]
+      PA1: [2, "PA1 connected to non-inverting input"]
+    WINMODE:
+      Disabled: [0, "COMP1 non-inverting input is not connected to COMP2_INP"]
+      Enabled: [1, "COMP1 non-inverting input is connected to COMP2_INP"]
+    HYST:
+      Disabled: [0, "COMP1 and COMP2 hysteresis disabled"]
+      Enabled: [1, "COMP1 and COMP2 hysteresis enabled"]
+
+COMP2:
+  CSR:
+    INMSEL:
+      OneQuarterVRef: [0, "1/4 of VRefint"]
+      ThreeQuarterVRef: [1, "3/4 of VRefint"]
+      OneHalfVRef: [2, "1/2 of VRefint"]
+      VRef: [3, "VRefint"]
+      Vcc: [4, "VCC"]
+      TS: [5, "TS"]
+      PB3: [6, "PB3 connected to inverting input"]
+      PB7: [7, "PB6 connected to inverting input"]
+      PA2: [8, "PA2 connected to inverting input"]
+    INPSEL:
+      PB4: [0, "PB4 connected to non-inverting input"]
+      PB6: [1, "PB6 connected to non-inverting input"]
+      PA3: [2, "PA3 connected to non-inverting input"]
+      PF3: [3, "PF3 connected to non-inverting input"]
+    WINMODE:
+      Disabled: [0, "COMP2 non-inverting input is not connected to COMP1_INP"]
+      Enabled: [1, "COMP2 non-inverting input is connected to COMP1_INP"]

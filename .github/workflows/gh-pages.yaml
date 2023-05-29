@@ -1,0 +1,42 @@
+name: build gh-pages
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_html:
+    name: Build HTML
+    runs-on: ubuntu-latest
+    env:
+      SVDTOOLS: svdtools
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - name: Install tools
+        run: |
+          ./scripts/tool_install.sh svdtools
+          ./scripts/tool_install.sh svd2html
+      - name: Build HTML
+        run: make -j2 html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: html
+
+  deploy_pages:
+    name: Deploy GH Pages
+    runs-on: ubuntu-latest
+    needs: build_html
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

@@ -1,0 +1,41 @@
+LPTIM,LPTIM?:
+  ISR:
+    ARRM:
+      _read:
+        Set: [1, "Autoreload match"]
+  ICR:
+    ARRMCF:
+      _write:
+        Clear: [1, "Autoreload match Clear Flag"]
+  IER:
+    ARRMIE:
+      Disabled: [0, "ARRM interrupt disabled"]
+      Enabled: [1, "ARRM interrupt enabled"]
+  CFGR:
+    PRELOAD:
+      Immediate:  [0, "Registers are updated after each APB bus write access"]
+      EndOfPeriod: [1, "Registers are updated at the end of the current LPTIM period"]
+    PRESC:
+      Div1: [0, "/1"]
+      Div2: [1, "/2"]
+      Div4: [2, "/4"]
+      Div8: [3, "/8"]
+      Div16: [4, "/16"]
+      Div32: [5, "/32"]
+      Div64: [6, "/64"]
+      Div128: [7, "/128"]
+  CR:
+    RSTARE:
+      Disabled: [0, "CNT Register reads do not trigger reset"]
+      Enabled: [1, "CNT Register reads trigger reset of LPTIM"]
+    SNGSTRT:
+      _write:
+        Start: [1, "LPTIM start in Single mode"]
+    ENABLE:
+        Disabled: [0, "LPTIM is disabled"]
+        Enabled: [1, "LPTIM is enabled"]
+  ARR:
+    ARR: [0, 0xFFFF]
+  CNT:
+    _read:
+      CNT: [0, 0xFFFF]

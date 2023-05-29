@@ -1,0 +1,95 @@
+_add:
+  PWR:
+    description: "Power control"
+    baseAddress: 0x40007000
+    addressBlock:
+      offset: 0x0
+      size: 0x400
+      usage: registers
+    registers:
+      CR1:
+        description: "Power control register 1"
+        addressOffset: 0x0
+        size: 0x20
+        access: read-write
+        resetValue: 0x00030000
+      CR2:
+        description: "Power control register 2"
+        addressOffset: 0x4
+        size: 0x20
+        access: read-write
+        resetValue: 0x00000500
+      SR:
+        description: "Power status register"
+        addressOffset: 0x14
+        size: 0x20
+        access: read-only
+        resetValue: 0x00000000
+
+PWR:
+  CR1:
+    _add:
+      BIAS_CR:
+        description: "MR Bias current"
+        bitOffset: 0
+        bitWidth: 4
+      BIAS_CR_SEL:
+        description: "MR Bias current selection"
+        bitOffset: 4
+        bitWidth: 1
+      DBP:
+        description: "Disable backup domain write protection"
+        bitOffset: 8
+        bitWidth: 1
+      VOS:
+        description: "Voltage scaling range selection"
+        bitOffset: 9
+        bitWidth: 1
+      MRRDY_TIME:
+        description: "Time selection wakeup from LP to VR"
+        bitOffset: 10
+        bitWidth: 2
+      FLS_SLPTIME:
+        description: "Flash wait time after wakeup from the stop mode"
+        bitOffset: 12
+        bitWidth: 2
+      LPRUN:
+        description: "Low-power run"
+        bitOffset: 14
+        bitWidth: 1
+      SRAM_RETV:
+        description: "SRAM retention voltage control"
+        bitOffset: 16
+        bitWidth: 3
+      HSION_CTRL:
+        description: "HSI open time control"
+        bitOffset: 19
+        bitWidth: 1
+  CR2:
+    _add:
+      PVDE:
+        description: "Power voltage detector enable"
+        bitOffset: 0
+        bitWidth: 1
+      PVD_SRCSEL:
+        description: "Power voltage detector voltage selection"
+        bitOffset: 2
+        bitWidth: 1
+      PVDT:
+        description: "Power voltage detector threshold selection"
+        bitOffset: 4
+        bitWidth: 3
+      FLTEN:
+        description: "Digital filter enable"
+        bitOffset: 8
+        bitWidth: 1
+      FLT_TIME:
+        description: "Digital filter sampling time configuration"
+        bitOffset: 9
+        bitWidth: 3
+  SR:
+    _add:
+      PVDO:
+        description: "PVD output"
+        bitOffset: 11
+        bitWidth: 1

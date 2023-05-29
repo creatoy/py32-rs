@@ -1,0 +1,88 @@
+FLASH:
+  ACR:
+    LATENCY:
+      WS0: [0, "0 wait states"]
+      WS1: [1, "1 wait state"]
+
+  KEYR:
+    KEY: [0, 0xFFFFFFFF]
+
+  OPTKEYR:
+    OPTKEY: [0, 0xFFFFFFFF]
+
+  SR:
+    EOP:
+      NoEvent: [0, "No EOP operation occurred"]
+      Event: [1, "An EOP event occurred"]
+    WRPERR:
+      NoError: [0, "No write protection error occurred"]
+      Error: [1, "A write protection error occurred"]
+    OPTVERR:
+      NoError: [0, "No option and Engineering bits loading validity error occurred"]
+      Error: [1, " An option and Engineering bits loading validity error occurred"]
+    BSY:
+      _read:
+        Inactive: [0, "No write/erase operation is in progress"]
+        Active: [1, "A write/erase operation is in progress"]
+
+  CR:
+    OBL_LAUNCH:
+      Inactive: [0, "Force option byte loading inactive"]
+      Active: [1, "Force option byte loading active"]
+    EOPIE:
+      Disabled: [0, "End of operation interrupt disabled"]
+      Enabled: [1, "End of operation interrupt enabled"]
+    ERRIE:
+      Disabled: [0, "Error interrupt generation disabled"]
+      Enabled: [1, "Error interrupt generation enabled"]
+    OPTLOCK:
+      Unlocked: [0, "Options is unlocked"]
+      Locked: [1, "Options is locked"]
+    LOCK:
+      Unlocked: [0, "FLASH_CR register is unlocked"]
+      Locked: [1, "FLASH_CR register is locked"]
+    PGTSTRT:
+      Start: [1, "Flash main memory program start"]
+    OPTSTRT:
+      OptionByteProgram: [1, "Option byte program start"]
+    SER:
+      SectorErase: [1, "Erase activated for user sectors"]
+    MER:
+      MassErase: [1, "Erase activated for all user sectors"]
+    PER:
+      PageErase: [1, "Erase activated for selected page"]
+    PG:
+      Program: [1, "Flash programming activated"]
+  OPTR:
+    nBOOT1:
+      Clear: [0, "Select boot mode together with BOOT Pin"]
+      Set: [1, "Select boot mode together with BOOT Pin"]
+    NRST_MODE:
+      NRST: [0, "Configure as NRST pin"]
+      GPIO: [1, "Configure as GPIO pin"]
+    _modify:
+      IDWG_SW:
+        name: IWDG_SW
+        Hardware: [0, "Hardware independent watchdog"]
+        Software: [1, "Software independent watchdog"]
+    BORF_LEV:
+      Level0: [0, "BOR level 0. Reset level threshold is around 1.8 V"]
+      Level1: [1, "BOR level 1. Reset level threshold is around 2.0 V"]
+      Level2: [2, "BOR level 2. Reset level threshold is around 2.2 V"]
+      Level3: [3, "BOR level 3. Reset level threshold is around 2.4 V"]
+      Level4: [4, "BOR level 4. Reset level threshold is around 2.6 V"]
+      Level5: [5, "BOR level 5. Reset level threshold is around 2.8 V"]
+      Level6: [6, "BOR level 6. Reset level threshold is around 3.0 V"]
+      Level7: [7, "BOR level 7. Reset level threshold is around 3.2 V"]
+    BOREN:
+      Disabled: [0, "BOR disabled"]
+      Enabled: [1, "BOR enabled"]
+    RDP:
+      Level0: [0xAA, "Level 0, readout protection not active"]
+      Level2: [0xCC, "Level 2, chip readout protection active"]
+      # The manual specifies "Others" for Level 1, 0x88 is arbitrary
+      # Since the reset value is AA, the value for Level 1 needs to be written
+      # so there is no conflict reading other values (unless unsafe is used)
+      Level1: [0x88, "Level 1, memories readout protection active (writes 0x88)"]
+  WRPR:
+    WRP: [0, 0xFFFFFFFF]

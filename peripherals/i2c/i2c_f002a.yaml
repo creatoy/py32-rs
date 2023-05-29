@@ -1,0 +1,127 @@
+"I2C*":
+  CR1:
+    SWRST:
+      NotReset: [0, "I2C peripheral not under reset"]
+      Reset: [1, "I2C peripheral under reset"]
+    POS:
+      Current: [0, "ACK bit controls the (N)ACK of the current byte being received"]
+      Next: [1, "ACK bit controls the (N)ACK of the next byte to be received"]
+    ACK:
+      NAK: [0, "No acknowledge returned"]
+      ACK: [1, "Acknowledge returned after a byte is received"]
+    STOP:
+      NoStop: [0, "No Stop generation"]
+      Stop: [1, "In master mode: stop generation after current byte/start, in slave mode: release SCL and SDA after current byte"]
+    START:
+      NoStart: [0, "No Start generation"]
+      Start: [1, "In master mode: repeated start generation, in slave mode: start generation when bus is free"]
+    NOSTRETCH:
+      Enabled: [0, "Clock stretching enabled"]
+      Disabled: [1, "Clock stretching disabled"]
+    ENGC:
+      Disabled: [0, "General call disabled"]
+      Enabled: [1, "General call enabled"]
+    PE:
+      Disabled: [0, "Peripheral disabled"]
+      Enabled: [1, "Peripheral enabled"]
+
+  CR2:
+    ITBUFEN:
+      Disabled: [0, "TxE=1 or RxNE=1 does not generate any interrupt"]
+      Enabled: [1, "TxE=1 or RxNE=1 generates Event interrupt"]
+    ITEVTEN:
+      Disabled: [0, "Event interrupt disabled"]
+      Enabled: [1, "Event interrupt enabled"]
+    ITERREN:
+      Disabled: [0, "Error interrupt disabled"]
+      Enabled: [1, "Error interrupt enabled"]
+    FREQ: [2, 50]
+
+  OAR1:
+    ADD: [0, 0x7F]
+
+  DR:
+    DR: [0, 0xFF]
+
+  SR1:
+    PECERR:
+      _read:
+        NoError: [0, "no PEC error: receiver returns ACK after PEC reception (if ACK=1)"]
+        Error: [1, "PEC error: receiver returns NACK after PEC reception (whatever ACK)"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    OVR:
+      _read:
+        NoOverrun: [0, "No overrun/underrun occured"]
+        Overrun: [1, "Overrun/underrun occured"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    AF:
+      _read:
+        NoFailure: [0, "No acknowledge failure"]
+        Failure: [1, "Acknowledge failure"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    ARLO:
+      _read:
+        NoLost: [0, "No Arbitration Lost detected"]
+        Lost: [1, "Arbitration Lost detected"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    BERR:
+      _read:
+        NoError: [0, "No misplaced Start or Stop condition"]
+        Error: [1, "Misplaced Start or Stop condition"]
+      _W0C:
+        Clear: [0, "Clear flag"]
+    _modify:
+      TxE:
+        name: TXE
+      RxNE:
+        name: RXNE
+    TXE:
+      NotEmpty: [0, "Data register not empty"]
+      Empty: [1, "Data register empty"]
+    RXNE:
+      Empty: [0, "Data register empty"]
+      NotEmpty: [1, "Data register not empty"]
+    STOPF:
+      NoStop: [0, "No Stop condition detected"]
+      Stop: [1, "Stop condition detected"]
+    BTF:
+      NotFinished: [0, "Data byte transfer not done"]
+      Finished: [1, "Data byte transfer successful"]
+    ADDR:
+      NotMatch: [0, "Adress mismatched or not received"]
+      Match: [1, "Received slave address matched with one of the enabled slave addresses"]
+    SB:
+      NoStart: [0, "No Start condition"]
+      Start: [1, "Start condition generated"]
+  SR2:
+    GENCALL:
+      _read:
+        NoGeneralCallRecv: [0, "Not receive general call address"]
+        GeneralCallRecv: [1, "When ENGC=1, received a general call address"]
+    TRA:
+      _read:
+        Received: [0, "Data received flag"]
+        Transferred: [1, "Data transferred flag"]
+    BUSY:
+      _read:
+        NotBusy: [0, "No communication on bus"]
+        Busy: [1, "Bus busy"]
+    MSL:
+      _read:
+        Slave: [0, "Slave mode"]
+        Master: [1, "Master mode"]
+  CCR:
+    F_S:
+      Standard: [0, "Standard mode I2C"]
+      Fast: [1, "Fast mode I2C"]
+    DUTY:
+      Duty2_1: [0, "Duty cycle t_low/t_high = 2/1"]
+      Duty16_9: [1, "Duty cycle t_low/t_high = 16/9"]
+    CCR: [1, 0xFFF]
+
+  TRISE:
+    TRISE: [0, 0x3F]

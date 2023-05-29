@@ -1,0 +1,70 @@
+PWR:
+  CR1:
+    _modify:
+      LPR:
+        name: LPRUN
+    LPRUN:
+      MainMode: [0, "Voltage regulator in Main mode in Low-power run mode"]
+      LowPowerMode: [1, "Voltage regulator in low-power mode in Low-power run mode"]
+    HSION_CTRL:
+      WaiteMR: [0, "Enable HSI after MR is stable"]
+      WakeOnVR: [1, "Enable HSI when VR is on (enable HSI immediately when wakeup)"]
+    SRAM_RETV:
+      V0_9: [3, "Supply voltage 0.9 V for SRAM"]
+      V1_x: [4, "Supply voltage 1.0 or 1.2 V (depends on VOS) for SRAM"]
+    FLS_SLPTIME:
+      FiveMicroSec: [0, "Flash wait 5 us after wakeup from stop mode"]
+      TwoMicroSec: [1, "Flash wait 2 us after wakeup from stop mode"]
+      ThreeMicroSec: [2, "Flash wait 3 us after wakeup from stop mode"]
+      ExcuteFromSRAM: [3, "Excute program from SRAM after wakeup from stop mode"]
+    MRRDY_TIME:
+      TwoMicroSec: [0, "MR ready after 2 us"]
+      ThreeMicroSec: [1, "MR ready after 3 us"]
+      FourMicroSec: [2, "MR ready after 4 us"]
+      FiveMicroSec: [3, "MR ready after 5 us"]
+    VOS:
+      V1_2: [0, "1.2 V (range 1)"]
+      V1_0: [1, "1.0 V (range 2)"]
+    DBP:
+      Disabled: [0, "Access to RTC, RTC Backup and RCC CSR registers disabled"]
+      Enabled: [1, "Access to RTC, RTC Backup and RCC CSR registers enabled"]
+    BIAS_CR_SEL:
+      FactoryConfig: [0, "Bias config from factory config bytes"]
+      BiasCR: [1, "Bias config from BIAS_CR register"]
+    BIAS_CR:
+      [0, 15]
+  CR2:
+    FLT_TIME:
+      T30us: [0, "Filter time is about 30 us"]
+      T60us: [1, "Filter time is about 60 us"]
+      T120us: [2, "Filter time is about 120 us"]
+      T480us: [3, "Filter time is about 480 us"]
+      T1_92ms: [4, "Filter time is about 1.92 ms"]
+      T3_8ms: [5, "Filter time is about 3.8 ms"]
+      T30_7ms: [6, "Filter time is about 30.7 ms"]
+    FLTEN:
+      Disabled: [0, "Digital filter disabled"]
+      Enabled: [1, "Digital filter enabled"]
+    PVDT:
+      V1_8: [0, "1.8 V"]
+      V2_0: [1, "2.0 V"]
+      V2_2: [2, "2.2 V"]
+      V2_4: [3, "2.4 V"]
+      V2_6: [4, "2.6 V"]
+      V2_8: [5, "2.8 V"]
+      V3_0: [6, "3.0 V"]
+      V3_2: [7, "3.2 V"]
+    _modify:
+      SRCSEL:
+        name: PVD_SRCSEL
+    PVD_SRCSEL:
+      Vcc: [0, "VCC as detector source"]
+      PB7: [1, "PB7 pin as detector source"]
+    PVDE:
+      Disabled: [0, "PVD Disabled"]
+      Enabled: [1, "PVD Enabled"]
+  SR:
+    PVDO:
+      _read:
+        AboveThreshold: [0, "VDD is higher than the PVD threshold selected with the PLS[2:0] bits"]
+        BelowThreshold: [1, "VDD is lower than the PVD threshold selected with the PLS[2:0] bits"]
