@@ -5,7 +5,7 @@
 
 	<vendor>Puya</vendor>
 	<vendorID>Puya</vendorID>
-	<name>PY32F0xx_DFP</name>
+	<name>PY32F030xx</name>
 	<!-- name of part-->
 	<series>PY32F0</series>
 	<version>1.0.0</version>
@@ -875,6 +875,18 @@
 					<resetValue>0x00000100</resetValue>
 					<fields>
 						<field>
+							<name>PLLRDY</name>
+							<description>PLL clock ready flag</description>
+							<bitOffset>25</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>PLLON</name>
+							<description>PLL enable</description>
+							<bitOffset>24</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
 							<name>CSSON</name>
 							<description>Clock security system
 							enable</description>
@@ -1022,6 +1034,23 @@
 					</fields>
 				</register>
 				<register>
+					<name>PLLCFGR</name>
+					<displayName>PLLCFGR</displayName>
+					<description>PLL configuration register</description>
+					<addressOffset>0xC</addressOffset>
+					<size>0x20</size>
+					<resetValue>0x00000000</resetValue>
+					<fields>
+						<field>
+							<name>PLLSRC</name>
+							<description>PLL clock source selection</description>
+							<bitOffset>0</bitOffset>
+							<bitWidth>1</bitWidth>
+							<access>read-write</access>
+						</field>
+					</fields>
+				</register>
+				<register>
 					<name>ECSCR</name>
 					<displayName>ECSCR</displayName>
 					<description>External clock source control register</description>
@@ -1029,6 +1058,13 @@
 					<size>0x20</size>
 					<resetValue>0x00000000</resetValue>
 					<fields>
+						<field>
+							<name>LSE_DRIVER</name>
+							<description>LSE clock driver selection</description>
+							<bitOffset>16</bitOffset>
+							<bitWidth>2</bitWidth>
+							<access>read-write</access>
+						</field>
 						<field>
 							<name>HSE_FREQ</name>
 							<description>HSE clock freqency selection</description>
@@ -1049,6 +1085,12 @@
 					<resetValue>0x00000000</resetValue>
 					<fields>
 						<field>
+							<name>PLLRDYIE</name>
+							<description>PLL ready interrupt enable</description>
+							<bitOffset>5</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
 							<name>HSERDYIE</name>
 							<description>HSE ready interrupt enable</description>
 							<bitOffset>4</bitOffset>
@@ -1058,6 +1100,12 @@
 							<name>HSIRDYIE</name>
 							<description>HSI ready interrupt enable</description>
 							<bitOffset>3</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>LSERDYIE</name>
+							<description>LSE ready interrupt enable</description>
+							<bitOffset>1</bitOffset>
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
@@ -1078,9 +1126,21 @@
 					<resetValue>0x00000000</resetValue>
 					<fields>
 						<field>
+							<name>LSECSSF</name>
+							<description>LSE clock secure system interrupt flag</description>
+							<bitOffset>9</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
 							<name>CSSF</name>
 							<description>HSE clock secure system interrupt flag</description>
 							<bitOffset>8</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>PLLRDYF</name>
+							<description>PLL ready interrupt flag</description>
+							<bitOffset>5</bitOffset>
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
@@ -1093,6 +1153,12 @@
 							<name>HSIRDYF</name>
 							<description>HSI ready interrupt flag</description>
 							<bitOffset>3</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>LSERDYF</name>
+							<description>LSE ready interrupt flag</description>
+							<bitOffset>1</bitOffset>
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
@@ -1113,9 +1179,21 @@
 					<resetValue>0x00000000</resetValue>
 					<fields>
 						<field>
+							<name>LSECSSC</name>
+							<description>LSE clock secure system interrupt flag clear</description>
+							<bitOffset>9</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
 							<name>CSSC</name>
 							<description>clock secure system interrupt flag clear</description>
 							<bitOffset>8</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>PLLRDYC</name>
+							<description>PLL ready interrupt clear</description>
+							<bitOffset>5</bitOffset>
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
@@ -1128,6 +1206,12 @@
 							<name>HSIRDYC</name>
 							<description>HSI ready interrupt clear</description>
 							<bitOffset>3</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>LSERDYC</name>
+							<description>LSE ready interrupt clear</description>
+							<bitOffset>1</bitOffset>
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
@@ -1231,6 +1315,12 @@
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
+							<name>SPI2RST</name>
+							<description>SPI2 reset</description>
+							<bitOffset>14</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
 							<name>TIM3RST</name>
 							<description>TIM3 timer reset</description>
 							<bitOffset>1</bitOffset>
@@ -1248,6 +1338,12 @@
 					<access>read-write</access>
 					<resetValue>0x00000000</resetValue>
 					<fields>
+						<field>
+							<name>LEDRST</name>
+							<description>LED reset</description>
+							<bitOffset>23</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
 						<field>
 							<name>COMP2RST</name>
 							<description>COMP2 reset</description>
@@ -1420,6 +1516,12 @@
 							<bitWidth>1</bitWidth>
 						</field>
 						<field>
+							<name>SPI2EN</name>
+							<description>SPI2 clock enable</description>
+							<bitOffset>14</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
 							<name>WWDGEN</name>
 							<description>WWDG clock enable</description>
 							<bitOffset>11</bitOffset>
@@ -1449,6 +1551,12 @@
 					<access>read-write</access>
 					<resetValue>0x00000000</resetValue>
 					<fields>
+						<field>
+							<name>LEDEN</name>
+							<description>LED clock enable</description>
+							<bitOffset>23</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
 						<field>
 							<name>COMP2EN</name>
 							<description>COMP2 clock enable</description>
@@ -1592,6 +1700,36 @@
 							<description>RTC clock source selection</description>
 							<bitOffset>8</bitOffset>
 							<bitWidth>2</bitWidth>
+						</field>
+						<field>
+							<name>LSECSSD</name>
+							<description>LSE CSS detect</description>
+							<bitOffset>6</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>						
+						<field>
+							<name>LSECSSON</name>
+							<description>LSE CSS enable</description>
+							<bitOffset>5</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>LSEBYP</name>
+							<description>LSE oscillator bypass</description>
+							<bitOffset>2</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>LSERDY</name>
+							<description>LSE oscillator ready</description>
+							<bitOffset>1</bitOffset>
+							<bitWidth>1</bitWidth>
+						</field>
+						<field>
+							<name>LSEON</name>
+							<description>LSE oscillator enable</description>
+							<bitOffset>0</bitOffset>
+							<bitWidth>1</bitWidth>
 						</field>
 					</fields>
 				</register>
@@ -7832,7 +7970,7 @@
 						<access>read-write</access>
 						<resetValue>0x0000</resetValue>
 						<fields>
-							<field>
+						    <field>
 								<name>CC4NP</name>
 								<description>
 									Capture/Compare 4 output
@@ -9291,7 +9429,7 @@
 						 </field>
 					  </fields>
 				  </register>
-				  <register>
+				    <register>
 					<name>IFCR</name>
 					<displayName>IFCR</displayName>
 					<description>DMA interrupt flag clear register
@@ -10596,6 +10734,15 @@
         </register>
       </registers>
     </peripheral>
+    <peripheral derivedFrom="SPI1">
+      <name>SPI2</name>
+      <baseAddress>0x40003800</baseAddress>
+      <interrupt>
+        <name>SPI2</name>
+        <description>SPI2 global Interrupt</description>
+        <value>26</value>
+      </interrupt>
+    </peripheral>
     <peripheral>
       <name>I2C</name>
       <description>Inter integrated circuit</description>
@@ -10957,7 +11104,353 @@
         </register>
       </registers>
     </peripheral>
-    <peripheral>
+   <peripheral>
+      <name>LED</name>
+      <description>LED CONTROLLER</description>
+      <groupName>LED</groupName>
+      <baseAddress>0x40002400</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x400</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>LED</name>
+        <description>LED global Interrupt</description>
+        <value>30</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>CR</name>
+          <displayName>LED_CR</displayName>
+          <description>Control register </description>
+          <addressOffset>0x0</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>EHS</name>
+              <description>Light control</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>IE</name>
+              <description>LED interrupt enable</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>LED_COM_SEL</name>
+              <description>LED COM Selection</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>LEDON</name>
+              <description>LED enable</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PR</name>
+          <displayName>LED_PR</displayName>
+          <description>Prescaler register</description>
+          <addressOffset>0x4</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>PR</name>
+              <description>Prescaler control</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TR</name>
+          <displayName>LED_TR</displayName>
+          <description>Time register </description>
+          <addressOffset>0x8</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>T2</name>
+              <description>Switch time</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+            <field>
+              <name>T1</name>
+              <description>Light on time</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DR0</name>
+          <displayName>LED_DR0</displayName>
+          <description>Data0 register</description>
+          <addressOffset>0x0C</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+			<field>
+              <name>DATA0_DP</name>
+              <description>8-bit data register</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA0_G</name>
+              <description>8-bit data register</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA0_F</name>
+              <description>8-bit data register</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA0_E</name>
+              <description>8-bit data register</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA0_D</name>
+              <description>8-bit data register</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA0_C</name>
+              <description>8-bit data register</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA0_B</name>
+              <description>8-bit data register</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DATA0_A</name>
+              <description>8-bit data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DR1</name>
+          <displayName>LED_DR1</displayName>
+          <description>Data1 register</description>
+          <addressOffset>0x10</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>DATA1_DP</name>
+              <description>8-bit data register</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA1_G</name>
+              <description>8-bit data register</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA1_F</name>
+              <description>8-bit data register</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA1_E</name>
+              <description>8-bit data register</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA1_D</name>
+              <description>8-bit data register</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA1_C</name>
+              <description>8-bit data register</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA1_B</name>
+              <description>8-bit data register</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DATA1_A</name>
+              <description>8-bit data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DR2</name>
+          <displayName>LED_DR2</displayName>
+          <description>Data2 register</description>
+          <addressOffset>0x14</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>DATA2_DP</name>
+              <description>8-bit data register</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA2_G</name>
+              <description>8-bit data register</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA2_F</name>
+              <description>8-bit data register</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA2_E</name>
+              <description>8-bit data register</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA2_D</name>
+              <description>8-bit data register</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA2_C</name>
+              <description>8-bit data register</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA2_B</name>
+              <description>8-bit data register</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DATA2_A</name>
+              <description>8-bit data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DR3</name>
+          <displayName>LED_DR3</displayName>
+          <description>Data3 register</description>
+          <addressOffset>0x18</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>DATA3_DP</name>
+              <description>8-bit data register</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA3_G</name>
+              <description>8-bit data register</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA3_F</name>
+              <description>8-bit data register</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA3_E</name>
+              <description>8-bit data register</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA3_D</name>
+              <description>8-bit data register</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA3_C</name>
+              <description>8-bit data register</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+			<field>
+              <name>DATA3_B</name>
+              <description>8-bit data register</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DATA3_A</name>
+              <description>8-bit data register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>IR</name>
+          <displayName>LED_IR</displayName>
+          <description>Interrupt register 1</description>
+          <addressOffset>0x1C</addressOffset>
+          <size>0x20</size>
+          <resetValue>0x0000</resetValue>
+          <fields>
+            <field>
+              <name>FLAG</name>
+              <description> interrupt flag</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>                 
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+	<peripheral>
       <name>DBGMCU</name>
       <description>Debug support</description>
       <groupName>DBGMCU</groupName>
@@ -10977,7 +11470,7 @@
 			  <access>read-only</access>
 			  <resetValue>0x0</resetValue>
 			  <fields>
-				  
+
 			  </fields>
 		  </register>
         <register>
