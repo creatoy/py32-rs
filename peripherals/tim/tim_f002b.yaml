@@ -1,4 +1,8 @@
 "TIM*":
+  "CCR?":
+    _modify:
+      "CCR?":
+        name: CCR
   CR1:
     ARPE:
       Disabled: [0, "TIMx_APRR register is not buffered"]
@@ -18,10 +22,6 @@
         Trigger: [1, "Re-initializes the timer counter and generates an update of the registers."]
 
 TIM1:
-  "CCR?":
-    _modify:
-      "CCR?":
-        name: CCR
   CR2:
     CCUS:
       Bit: [0, "When capture/compare control bits are preloaded (CCPC=1), they are updated by setting the COMG bit only"]

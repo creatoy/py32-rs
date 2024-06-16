@@ -44,6 +44,16 @@
     DR: [0, 0xFF]
 
   SR1:
+    _add:
+      PECERR:
+        description: "PEC Error in reception"
+        bitOffset: 12
+        bitWidth: 1
+        _read:
+          NoError: [0, "no PEC error: receiver returns ACK after PEC reception (if ACK=1)"]
+          Error: [1, "PEC error: receiver returns NACK after PEC reception (whatever ACK)"]
+        _W0C:
+          Clear: [0, "Clear flag"]
     OVR:
       _read:
         NoOverrun: [0, "No overrun/underrun occured"]
