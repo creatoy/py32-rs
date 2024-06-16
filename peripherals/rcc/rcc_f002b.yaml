@@ -1,12 +1,12 @@
 RCC:
   CR:
+    _modify:
+      HSEON:
+        name: "HSEBYP"
     "*ON":
       On: [0, "Clock disabled"]
       Off: [1, "Clock enabled"]
-    HSEBYP:
-      NotBypassed: [0, "HSE oscillator not bypassed"]
-      Bypassed: [1, "HSE oscillator bypassed"]
-    "*RDY":
+    HSIRDY:
       _read:
         NotReady: [0, "Oscillator is not stable"]
         Ready: [1, "Oscillator is stable"]
@@ -78,19 +78,24 @@ RCC:
       PLL: [2, "PLL used as system clock"]
       LSI: [3, "LSI oscillator used as system clock"]
   ECSCR:
-    HSE_FREQ:
-      Disabled: [0, "Disable HSE drive"]
-      Freq4_8MHz: [1, "4MHz ~ 8MHz"]
-      Freq8_16MHz: [2, "8MHz ~ 16MHz"]
-      Freq16_32MHz: [3, "16MHz ~ 32MHz"]
+    LSE_STARTUP:
+      Cycles4096: [0, "4096 LSE cycles for startup"]
+      Cycles2048: [1, "2048 LSE cycles for startup"]
+      Cycles8192: [2, "8192 LSE cycles for startup"]
+      Immediate: [3, "No LSE startup"]
+    LSE_DRIVER:
+      Lowest: [0, "Lowest driver power"]
+      Low: [1, "Low driver power"]
+      Default: [2, "Default driver power"]
+      Highest: [3, "Highest driver power"]
   CIER:
     "*RDYIE":
       Disabled: [0, "Ready interrupt disabled"]
       Enabled: [1, "Ready interrupt enabled"]
   CIFR:
-    CSSF:
-      NoClock: [0, "No clock security interrupt caused by HSE clock failure"]
-      Clock: [1, "Clock security interrupt caused by HSE clock failure"]
+    LSECSSF:
+      NoClock: [0, "No clock security interrupt caused by LSE clock failure"]
+      Clock: [1, "Clock security interrupt caused by LSE clock failure"]
     "*RDYF":
       _read:
         NotInterrupted: [0, "No clock ready interrupt"]

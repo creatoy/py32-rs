@@ -1,0 +1,20 @@
+_svd: ../svd/py32f002b.svd
+
+_include:
+ - ./common_patches/syscfg_f002b.yaml
+ - ../peripherals/flash/flash_f002b.yaml
+ - ../peripherals/pwr/pwr_f002b.yaml
+ - ../peripherals/rcc/rcc_f002b.yaml
+ - ../peripherals/gpio/gpio_f0.yaml
+ - ../peripherals/syscfg/syscfg_f002b.yaml
+ - ../peripherals/exti/exti_f0.yaml
+ - ../peripherals/crc/crc_f0.yaml
+ - ../peripherals/adc/adc_f002b.yaml
+ - ../peripherals/comp/comp_f002b.yaml
+ - ../peripherals/tim/tim_f002b.yaml
+ - ../peripherals/lptim/lptim_f0.yaml
+ - ../peripherals/iwdg/iwdg_f002b.yaml
+ - ../peripherals/i2c/i2c_f002b.yaml
+ - ../peripherals/usart/usart_f002b.yaml
+ - ../peripherals/spi/spi_f002b.yaml
+ - ../peripherals/dbg/dbg_f002b.yaml

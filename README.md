@@ -111,7 +111,7 @@ supports.
   peripherals could be cleanly applied to this new SVD. If they look sensible,
   you can include them in your device YAML.  This requires a Python environment with the `pyyaml`
   and `svdtools` dependencies.
-  Example command: `python scripts/matchperipherals.py peripherals/rcc devices/py32h562.yaml`
+  Example command: `python scripts/matchperipherals.py peripherals/rcc devices/py32f030.yaml`
 * Re-run `scripts/makecrates.py devices/` to update the crates with the new devices.
 * Run `make` to rebuild, which will make a patched SVD and then run `svd2rust`
   on it to generate the final library.

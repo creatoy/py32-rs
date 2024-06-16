@@ -37,7 +37,7 @@ fi
 
 if [ "${svdtools:-}" ]; then
     echo "svdtools = ${svdtools}"
-    curl -sSfL https://github.com/stm32-rs/svdtools/releases/download/$svdtools/svdtools-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svdtools
+    curl -sSfL https://github.com/rust-embedded/svdtools/releases/download/$svdtools/svdtools-x86_64-unknown-linux-gnu.gz | gzip -d - > ~/.cargo/bin/svdtools
     chmod +x ~/.cargo/bin/svdtools
 fi
 

@@ -1,0 +1,35 @@
+PWR:
+  CR1:
+    _modify:
+      LPR:
+        name: LPRUN
+    LPRUN:
+      MainMode: [0, "Voltage regulator in Main mode in Low-power run mode"]
+      LowPowerMode: [1, "Voltage regulator in low-power mode in Low-power run mode"]
+    HSION_CTRL:
+      WaiteMR: [0, "Enable HSI after MR is stable"]
+      WakeOnVR: [1, "Enable HSI when VR is on (enable HSI immediately when wakeup)"]
+    SRAM_RETV:
+      V0_9: [3, "Supply voltage 0.9 V for SRAM"]
+      V1_x: [4, "Supply voltage 1.0 or 1.2 V (depends on VOS) for SRAM"]
+    FLS_SLPTIME:
+      FiveMicroSec: [0, "Flash wait 5 us after wakeup from stop mode"]
+      TwoMicroSec: [1, "Flash wait 2 us after wakeup from stop mode"]
+      ThreeMicroSec: [2, "Flash wait 3 us after wakeup from stop mode"]
+      ExcuteFromSRAM: [3, "Excute program from SRAM after wakeup from stop mode"]
+    MRRDY_TIME:
+      TwoMicroSec: [0, "MR ready after 2 us"]
+      ThreeMicroSec: [1, "MR ready after 3 us"]
+      FourMicroSec: [2, "MR ready after 4 us"]
+      FiveMicroSec: [3, "MR ready after 5 us"]
+    VOS:
+      V1_2: [0, "1.2 V (range 1)"]
+      V1_0: [1, "1.0 V (range 2)"]
+    DBP:
+      Disabled: [0, "Access to RTC, RTC Backup and RCC CSR registers disabled"]
+      Enabled: [1, "Access to RTC, RTC Backup and RCC CSR registers enabled"]
+    BIAS_CR_SEL:
+      FactoryConfig: [0, "Bias config from factory config bytes"]
+      BiasCR: [1, "Bias config from BIAS_CR register"]
+    BIAS_CR:
+      [0, 15]

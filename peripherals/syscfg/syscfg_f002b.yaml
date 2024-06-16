@@ -1,0 +1,26 @@
+SYSCFG:
+  CFGR1:
+    MEM_MODE:
+      MainFlash: [0, "Main Flash memory mapped at 0x0000_0000"]
+      SystemFlash: [1, "System Flash memory mapped at 0x0000_0000"]
+      MainFlash2: [2, "Main Flash memory mapped at 0x0000_0000"]
+      SRAM: [3, "Embedded SRAM mapped at 0x0000_0000"]
+    "I2C_P?*_FMP":
+      Standard: [0, "Pin operate in standard mode"]
+      AnalogFilter: [1, "I2C FM+ mode enabled on pin"]
+  CFGR2:
+    ETR_SRC_TIM1:
+      GPIO: [0, "TIM1_ETR is connected to GPIO"]
+      COMP1: [1, "TIM1_ETR is connected to COMP1"]
+      COMP2: [2, "TIM1_ETR is connected to COMP2"]
+      ADC: [3, "TIM1_ETR is connected to ADC"]
+    "COMP?_BRK_TIM*":
+      Disconnected: [0, "COMP? output not connect to TIM? Break input"]
+      Connected: [1, "COMP? output connected to TIM? Break input"]
+    LOCKUP_LOCK:
+      Disconnected: [0, "Cortex-M0+ LOCKUP output disconnected from TIM1/16/17 Break input"]
+      Connected: [1, "Cortex-M0+ LOCKUP output connected to TIM1/16/17 Break input"]
+  GPIO_ENS:
+    PA_ENS: [0, 63]
+    PB_ENS: [0, 63]
+    PC_ENS: [0, 3]

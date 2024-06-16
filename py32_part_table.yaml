@@ -11,18 +11,31 @@
 # This data is used to generate more informative crate READMEs.
 
 py32f0:
-  py32f00x:
-    url: https://www.puyasemi.com/cpzx3/info_267_aid_242_kid_235.html
-    rm: PY32 mcu docs
-    rm_title: PY32 mcu docs
-    rm_url: https://www.puyasemi.com/uploadfiles/2023/PY32F030-PY32F003-PY32F002A-230410.rar
+  py32f002a:
+    url: https://www.puyasemi.com/py32f002axilie629.html?tag=16#common
+    rm: PY32F002A Reference manual
+    rm_title: PY32F002A Reference manual
+    rm_url: https://www.puyasemi.com/download_path/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/MCU%20%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/PY32F002A%20Reference%20manual%20v1.0_EN.pdf
     members:
       - PY32F002A
+  py32f002b:
+    url: https://www.puyasemi.com/py32f002bxilie429.html?tag=16#common
+    rm: PY32F002B Reference manual
+    rm_title: PY32F002B Reference manual
+    rm_url: https://www.puyasemi.com/download_path/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/MCU%20%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/PY32F002B%20Reference%20manual%20v1.0_EN.pdf
+    members:
+      - PY32F002B
+  py32f003:
+    url: https://www.puyasemi.com/py32f003xilie.html?tag=16#common
+    rm: PY32F003 Reference manual
+    rm_title: PY32F003 Reference manual
+    rm_url: https://www.puyasemi.com/download_path/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/MCU%20%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/PY32F003%20Reference%20manual%20v1.1_EN.pdf
+    members:
       - PY32F003
-  py32f0x0:
-    url: https://www.puyasemi.com/cpzx3/info_267_aid_242_kid_235.html
-    rm: PY32 mcu docs
-    rm_title: PY32 mcu docs
-    rm_url: https://www.puyasemi.com/uploadfiles/2023/PY32F030-PY32F003-PY32F002A-230410.rar
+  py32f030:
+    url: https://www.puyasemi.com/py32f030xilie.html?tag=15#common
+    rm: PY32F030 Reference manual
+    rm_title: PY32F030 Reference manual
+    rm_url: https://www.puyasemi.com/download_path/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C/MCU%20%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/PY32F030%20Reference%20manual%20v1.3_EN.pdf
     members:
       - PY32F030

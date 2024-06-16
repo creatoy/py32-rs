@@ -86,12 +86,6 @@ ADC:
         Active: [1, "ADC operating and may be converting"]
       _write:
         StartConversion: [1, "Start the ADC conversion (may be delayed for hardware triggers)"]
-    _add:
-      ADDIS:
-        description: ADC disabling
-        bitOffset: 1
-        bitWidth: 1
-        access: read-write
     ADDIS:
       _read:
         NotDisabling: [0, "No disable command active"]
@@ -105,7 +99,7 @@ ADC:
       _write:
         Enabled: [1, "Enable the ADC"]
   CFGR1:
-    AWDCH: [0, 18]
+    AWDCH: [0, 10]
     AWDEN:
       Disabled: [0, "Analog watchdog disabled"]
       Enabled: [1, "Analog watchdog enabled"]
@@ -152,12 +146,6 @@ ADC:
     SCANDIR:
       Upward: [0, "Upward scan (from CHSEL0 to CHSEL12)"]
       Backward: [1, "Backward scan (from CHSEL12 to CHSEL0)"]
-    DMACFG:
-      OneShot: [0, "DMA one shot mode selected"]
-      Circular: [1, "DMA circular mode selected"]
-    DMAEN:
-      Disabled: [0, "DMA disabled"]
-      Enabled: [1, "DMA enabled"]
   CFGR2:
     CKMODE:
       PCLK: [0, "PCLK (Synchronous clock mode)"]
@@ -198,12 +186,18 @@ ADC:
       _read:
         "Off": [0, "Calibration off"]
         "On": [1, "Calibration on"]
-    CALFAIL:
+    CALSUC:
       _read:
-        Succeed: [0, "Calibration succeed"]
-        Failed: [1, "Calibration failed"]
+        Failed: [0, "Calibration failed"]
+        Succeed: [1, "Calibration succeed"]
       _write:
-        Clear: [1, "Clear the calibration fail flag"]
+        Clear: [1, "Clear the calibration succeed flag"]
+    OFFSUC:
+      _read:
+        Failed: [0, "Calibration failed"]
+        Succeed: [1, "Calibration succeed"]
+      _write:
+        Clear: [1, "Clear the calibration succeed flag"]
     CALSMP:
       TowCycles: [0, "Calibration sample time is 2 cycles"]
       FourCycles: [1, "Calibration sample time is 4 cycles"]

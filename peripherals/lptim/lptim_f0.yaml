@@ -37,5 +37,4 @@ LPTIM,LPTIM?:
   ARR:
     ARR: [0, 0xFFFF]
   CNT:
-    _read:
-      CNT: [0, 0xFFFF]
+    CNT: [0, 0xFFFF]

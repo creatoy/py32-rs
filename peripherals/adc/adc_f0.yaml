@@ -152,6 +152,12 @@ ADC:
     SCANDIR:
       Upward: [0, "Upward scan (from CHSEL0 to CHSEL12)"]
       Backward: [1, "Backward scan (from CHSEL12 to CHSEL0)"]
+    DMACFG:
+      OneShot: [0, "DMA one shot mode selected"]
+      Circular: [1, "DMA circular mode selected"]
+    DMAEN:
+      Disabled: [0, "DMA disabled"]
+      Enabled: [1, "DMA enabled"]
   CFGR2:
     CKMODE:
       PCLK: [0, "PCLK (Synchronous clock mode)"]

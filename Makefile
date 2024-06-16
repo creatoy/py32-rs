@@ -1,6 +1,6 @@
 all: patch svd2rust
 
-.PHONY: patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
+.PHONY: extract patch crates svd2rust form check clean-rs clean-patch clean-html clean-svd clean lint mmaps
 .PRECIOUS: svd/%.svd .deps/%.d
 
 SHELL := /usr/bin/env bash
@@ -15,6 +15,7 @@ YAMLS := $(foreach crate, $(CRATES), \
 	       $(wildcard devices/$(crate)*.yaml))
 
 # Each yaml file in devices/ exactly name-matches an SVD file in svd/
+EXTRACTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd, $(YAMLS))
 PATCHED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.patched, $(YAMLS))
 FORMATTED_SVDS := $(patsubst devices/%.yaml, svd/%.svd.formatted, $(YAMLS))
 
@@ -59,15 +60,15 @@ define crate_template
 $(1)/src/%/mod.rs: svd/%.svd.patched $(1)/Cargo.toml
 	mkdir -p $$(@D)
 	cd $$(@D); svd2rust -m -g --strict --pascal_enum_values --max_cluster_size -i ../../../$$<
-	rustfmt --config-path="rustfmt.toml" $$@
+	rustfmt $$@
 	rm $$(@D)/build.rs
 	mv -f $$(@D)/generic.rs $$(@D)/../
 
 $(1)/src/%/.form: $(1)/src/%/mod.rs
-	form -i $$< -o $$(@D)
+	form -f -i $$< -o $$(@D)
 	rm $$<
 	mv $$(@D)/lib.rs $$<
-	rustfmt --config-path="rustfmt.toml" $$<
+	rustfmt $$<
 	touch $$@
 
 $(1)/src/%/.check: $(1)/src/%/mod.rs
@@ -84,6 +85,8 @@ svd/%.svd: svd/.extracted ;
 
 svd/.extracted:
 	cd svd && ./extract.sh && touch .extracted
+
+extract: $(EXTRACTED_SVDS)
 
 patch: $(PATCHED_SVDS)
 

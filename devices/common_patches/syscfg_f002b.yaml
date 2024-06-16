@@ -1,0 +1,11 @@
+SYSCFG:
+  CFGR2:
+    _add:
+      COMP1_BRK_TIM1:
+        description: "COMP1 output connect to TIM1 Break input"
+        bitOffset: 3
+        bitWidth: 1
+      COMP2_BRK_TIM1:
+        description: "COMP2 output connect to TIM1 Break input"
+        bitOffset: 4
+        bitWidth: 1

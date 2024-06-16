@@ -41,7 +41,7 @@ FLASH:
     LOCK:
       Unlocked: [0, "FLASH_CR register is unlocked"]
       Locked: [1, "FLASH_CR register is locked"]
-    PGTSTRT:
+    PGSTRT:
       Start: [1, "Flash main memory program start"]
     OPTSTRT:
       OptionByteProgram: [1, "Option byte program start"]
@@ -54,20 +54,15 @@ FLASH:
     PG:
       Program: [1, "Flash programming activated"]
   OPTR:
-    nBOOT1:
-      Clear: [0, "Select boot mode together with BOOT Pin"]
-      Set: [1, "Select boot mode together with BOOT Pin"]
     NRST_MODE:
-      NRST: [0, "Configure as NRST pin"]
-      GPIO: [1, "Configure as GPIO pin"]
-    WWDG_SW:
-      Hardware: [0, "Hardware window watchdog"]
-      Software: [1, "Software window watchdog"]
-    _modify:
-      IDWG_SW:
-        name: IWDG_SW
-        Hardware: [0, "Hardware independent watchdog"]
-        Software: [1, "Software independent watchdog"]
+      NRST: [0, "Configure pin mode together with SWD_MODE"]
+      GPIO: [1, "Configure pin mode together with SWD_MODE"]
+    SWD_MODE:
+      SWD: [0, "Configure pin mode together with NRST_MODE"]
+      GPIO: [1, "Configure pin mode together with NRST_MODE"]
+    IWDG_SW:
+      Hardware: [0, "Hardware independent watchdog"]
+      Software: [1, "Software independent watchdog"]
     BORF_LEV:
       Level0: [0, "BOR level 0. Reset level threshold is around 1.8 V"]
       Level1: [1, "BOR level 1. Reset level threshold is around 2.0 V"]
@@ -80,12 +75,18 @@ FLASH:
     BOREN:
       Disabled: [0, "BOR disabled"]
       Enabled: [1, "BOR enabled"]
-    RDP:
-      Level0: [0xAA, "Level 0, readout protection not active"]
-      Level2: [0xCC, "Level 2, chip readout protection active"]
-      # The manual specifies "Others" for Level 1, 0x88 is arbitrary
-      # Since the reset value is AA, the value for Level 1 needs to be written
-      # so there is no conflict reading other values (unless unsafe is used)
-      Level1: [0x88, "Level 1, memories readout protection active (writes 0x88)"]
+  BTCR:
+    NBOOT1:
+      SRAM: [0, "Select boot mode together with BOOT0"]
+      LoadFlash: [1, "Select boot mode together with BOOT0"]
+    BOOT0:
+      MainFlash: [0, "Boot from main flash"]
+      BOOT1: [1, "Select boot mode together with nBOOT1"]
+    BOOT_SIZE:
+      NoLoad: [0, "No load flash area"]
+      Boot_1K: [1, "Boot size = 1K 0x08005C00~0x08005FFF"]
+      Boot_2K: [2, "Boot size = 2K 0x08005800~0x08005FFF"]
+      Boot_3K: [3, "Boot size = 3K 0x08005400~0x08005FFF"]
+      Boot_4K: [4, "Boot size = 4K 0x08005000~0x08005FFF"]
   WRPR:
-    WRP: [0, 0xFFFFFFFF]
+    WRP: [0, 0x1F]

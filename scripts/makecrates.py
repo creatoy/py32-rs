@@ -16,11 +16,11 @@ import argparse
 import re
 import yaml
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 SVD2RUST_VERSION = "0.28.0"
 
 CRATE_DOC_FEATURES = {
-    "py32f0": ["critical-section", "rt", "py32f002a", "py32f003", "py32f030"]
+    "py32f0": ["critical-section", "rt", "py32f002a", "py32f002b", "py32f003", "py32f030"]
 }
 
 CRATE_DOC_TARGETS = {
@@ -32,7 +32,7 @@ CARGO_TOML_TPL = """\
 edition = "2021"
 name = "{crate}"
 version = "{version}"
-authors = ["yang <creatio@yeah.net>", "py32-rs Contributors"]
+authors = ["creatoy <creatoy@yeah.net>", "py32-rs Contributors"]
 description = "Device support crates for {family} devices"
 repository = "https://github.com/creatoy/py32-rs"
 readme = "README.md"
@@ -190,7 +190,6 @@ def main(devices_path, yes, families):
 
     for path in glob.glob(os.path.join(devices_path, "*.yaml")):
         yamlfile = os.path.basename(path)
-        print("YAML file name: ", yamlfile);
         family = re.match(r'py32[a-z]+[0-9]', yamlfile)[0]
         device = os.path.splitext(yamlfile)[0].lower()
         if len(families) == 0 or family in families:

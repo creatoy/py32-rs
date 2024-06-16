@@ -1,0 +1,44 @@
+COMP?:
+  CSR:
+    _modify:
+      COMP_EN:
+        name: EN
+      COMP_OUT:
+        name: VALUE
+    EN:
+      Disabled: [0, "Comparator 1 disabled"]
+      Enabled: [1, "Comparator 1 enabled"]
+    POLARITY:
+      NotInverted: [0, "Output is not inverted"]
+      Inverted: [1, "Output is inverted"]
+    VALUE:
+      _read:
+        Low: [0, "Comparator output is low"]
+        High: [1, "Comparator output is high"]
+  FR:
+    _modify:
+      FLTEN:
+        name: FLTEN*
+        Disabled: [0, "Comparator digital filter disabled"]
+        Enabled: [1, "Comparator digital filter enabled"]
+      FLTCNT:
+        name: FLTCNT*
+        value: [0, 0xFFFF]
+
+COMP1:
+  CSR:
+    INNSEL:
+      PB0: [0, "PB0 connected to inverting input"]
+      PB1: [1, "PB1 connected to inverting input"]
+    WINMODE:
+      Disabled: [0, "COMP1 non-inverting input is connected to COMP1_INP"]
+      Enabled: [1, "COMP1 non-inverting input is connected to COMP2_INP"]
+
+COMP2:
+  CSR:
+    INMSEL:
+      PA4: [0, "PA4 connected to inverting input"]
+      PA3: [1, "PA3 connected to inverting input"]
+    INPSEL:
+      PA3: [0, "PA3 connected to non-inverting input"]
+      VRefCmp: [1, "VRef comp"]

@@ -65,31 +65,3 @@ PWR:
         description: "HSI open time control"
         bitOffset: 19
         bitWidth: 1
-  CR2:
-    _add:
-      PVDE:
-        description: "Power voltage detector enable"
-        bitOffset: 0
-        bitWidth: 1
-      PVD_SRCSEL:
-        description: "Power voltage detector voltage selection"
-        bitOffset: 2
-        bitWidth: 1
-      PVDT:
-        description: "Power voltage detector threshold selection"
-        bitOffset: 4
-        bitWidth: 3
-      FLTEN:
-        description: "Digital filter enable"
-        bitOffset: 8
-        bitWidth: 1
-      FLT_TIME:
-        description: "Digital filter sampling time configuration"
-        bitOffset: 9
-        bitWidth: 3
-  SR:
-    _add:
-      PVDO:
-        description: "PVD output"
-        bitOffset: 11
-        bitWidth: 1

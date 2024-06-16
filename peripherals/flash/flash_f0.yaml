@@ -62,6 +62,9 @@ FLASH:
     NRST_MODE:
       NRST: [0, "Configure as NRST pin"]
       GPIO: [1, "Configure as GPIO pin"]
+    WWDG_SW:
+      Hardware: [0, "Hardware window watchdog"]
+      Software: [1, "Software window watchdog"]
     _modify:
       IDWG_SW:
         name: IWDG_SW

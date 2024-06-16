@@ -1,0 +1,24 @@
+_modify:
+  DBGMCU:
+    name: DBG
+
+DBG:
+  IDCODE:
+    _add:
+      CODE:
+        description: DBG ID code register
+        bitOffset: 0
+        bitWidth: 32
+  CR:
+    DBG_STOP:
+      Disabled: [0, "Debug Stop Mode Disabled"]
+      Enabled: [1, "Debug Stop Mode Enabled"]
+  APB_FZ1:
+    DBG_LPTIM_STOP:
+      Continue: [ 0, "LPTIMx counter clock is fed even if the core is halted" ]
+      Stop: [ 1, "LPTIMx counter clock is stopped when the core is halted" ]
+  APB_FZ2:
+    "DBG_TIM*_STOP":
+      Continue: [0, "The counter clock of TIMx is fed even if the core is halted"]
+      Stop: [1, "The counter clock of TIMx is stopped when the core is halted"]
+
