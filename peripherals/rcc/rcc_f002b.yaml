@@ -1,11 +1,11 @@
 RCC:
   CR:
     _modify:
-      HSEON:
+      HSEEN:
         name: "HSEBYP"
-    "*ON":
-      On: [0, "Clock disabled"]
-      Off: [1, "Clock enabled"]
+    HSEBYP:
+      NotBypassed: [0, "HSE oscillator not bypassed"]
+      Bypassed: [1, "HSE oscillator bypassed"]
     HSIRDY:
       _read:
         NotReady: [0, "Oscillator is not stable"]
