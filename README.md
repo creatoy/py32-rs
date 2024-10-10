@@ -26,7 +26,7 @@ make any guarantee of correctness. Please report any bugs you find!
 In your own project's `Cargo.toml`:
 ```toml
 [dependencies.py32f0]
-version = "0.0.1"
+version = "0.1.1"
 features = ["py32f030"]
 ```
 
@@ -162,7 +162,7 @@ Notes for maintainers:
 2. Merge PR once CI passes, pull master locally.
 3. `make clean`
 4. `make -j16 form`
-5. `for f in py32f0; cd $f; pwd; cargo publish --allow-dirty --no-default-features; cd ..; end`
+5. `cd py32f0; pwd; cargo publish --allow-dirty --no-default-features`
 6. `git tag -a vX.X.X -m vX.X.X`
 7. `git push vX.X.X`
 

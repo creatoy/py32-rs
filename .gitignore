@@ -10,6 +10,7 @@ mmaps/
 /venv
 .devcontainer
 svd/*.svd*
+svd/.extracted
 
 # automatically generated crates
 /py32*/

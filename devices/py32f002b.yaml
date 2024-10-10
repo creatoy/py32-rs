@@ -1,5 +1,9 @@
 _svd: ../svd/py32f002b.svd
 
+"SPI*":
+  _include:
+    - common_patches/spi_dr8.yaml
+
 _include:
  - ./common_patches/syscfg_f002b.yaml
  - ../peripherals/flash/flash_f002b.yaml
