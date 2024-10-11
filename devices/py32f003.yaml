@@ -4,6 +4,10 @@ _svd: ../svd/py32f003.svd
   _include:
     - common_patches/spi_dr8.yaml
 
+"USART*":
+  _include:
+    - common_patches/usart_dr8.yaml
+
 _include:
  - ../peripherals/flash/flash_f0.yaml
  - ../peripherals/pwr/pwr_f0.yaml

@@ -1,0 +1,15 @@
+_add:
+  DR8:
+    description: Direct 8-bit access to data register
+    access: read-write
+    addressOffset: 0x4
+    alternateRegister: DR
+    size: 0x8
+    fields:
+      DR:
+        bitOffset: 0
+        bitWidth: 8
+        description: Data register
+
+DR8:
+  DR: [0, 0xFF]
