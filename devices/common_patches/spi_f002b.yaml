@@ -1,0 +1,6 @@
+# Rename DDF field in CR1 to DFF to match datasheet
+CR1:
+  _modify:
+    DDF:
+      name: DFF
+      description: desc DFF

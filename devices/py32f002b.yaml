@@ -3,6 +3,7 @@ _svd: ../svd/py32f002b.svd
 "SPI*":
   _include:
     - common_patches/spi_dr8.yaml
+    - common_patches/spi_f002b.yaml
 
 "USART*":
   _include:
